@@ -27,21 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
       snorkel: { name: 'Scatter & Snorkel (20 pax)', price: 3360 },
       helicopter: { name: 'Helicopter (3 pax)', price: 1500 },
       plane: { name: 'Fixed Wing Plane (3 pax)', price: 1055 },
-      unattended: { name: 'Unattended Package', price: 1500 }
+      unattended: { name: 'Unattended Package', price: 1500 },
+      special: { name: 'Special Requests (Custom)', price: 0 }
     },
     addons: {
       kahu: { name: 'Kahu Clergy (Hawaiian Style)', price: 450 },
       puolo: { name: 'Hawaiian Pu\'olo (Ti-leaf Urn)', price: 400 },
-      urn: { name: 'Biodegradable Urn (Starts at)', price: 165 },
+      urn: { name: 'Biodegradable Urn', price: 165 },
       petals: { name: 'Bags of Fresh Flower Petals', price: 30 },
       leis: { name: 'Fresh Ti Leaf / Orchid Leis', price: 40 },
-      photo: { name: 'Photography Package (Starts at)', price: 300 },
       ukulele: { name: 'Hawaiian Ukulele Vocalist', price: 500 },
-      hula: { name: 'Single Ceremonial Hula Dancer', price: 350 },
-      dove: { name: 'White Dove Release', price: 250 },
       song: { name: 'Personalized Tribute Song', price: 295 },
+      dove: { name: 'White Dove Release', price: 250 },
       beach: { name: 'Memorial Beach/Land Service', price: 450 },
-      wreath: { name: 'Memorial Wreaths on Easel', price: 400 }
+      photo: { name: 'Professional Photography', price: 500 },
+      wreath: { name: 'Floating Sea Wreath', price: 300 },
+      bamboo: { name: 'Bamboo Float', price: 325 },
+      easel: { name: 'Sprays & Wreaths on Easel', price: 400 }
     }
   };
 
@@ -55,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
     snorkel: document.getElementById('opt-snorkel'),
     helicopter: document.getElementById('opt-helicopter'),
     plane: document.getElementById('opt-plane'),
-    unattended: document.getElementById('opt-unattended')
+    unattended: document.getElementById('opt-unattended'),
+    special: document.getElementById('opt-special')
   };
 
   const addonOptions = {
@@ -64,13 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
     urn: document.getElementById('opt-urn'),
     petals: document.getElementById('opt-petals'),
     leis: document.getElementById('opt-leis'),
-    photo: document.getElementById('opt-photo'),
     ukulele: document.getElementById('opt-ukulele'),
-    hula: document.getElementById('opt-hula'),
-    dove: document.getElementById('opt-dove'),
     song: document.getElementById('opt-song'),
+    dove: document.getElementById('opt-dove'),
     beach: document.getElementById('opt-beach'),
-    wreath: document.getElementById('opt-wreath')
+    photo: document.getElementById('opt-photo'),
+    wreath: document.getElementById('opt-sea-wreath'),
+    bamboo: document.getElementById('opt-bamboo-float'),
+    easel: document.getElementById('opt-easel-wreath')
   };
 
   const summaryCeremony = document.getElementById('summary-ceremony');
@@ -87,7 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const ceremonyDetails = PRICING.ceremony[selectedCeremony];
     totalPrice += ceremonyDetails.price;
     if (summaryCeremony) {
-      summaryCeremony.textContent = `${ceremonyDetails.name} ($${ceremonyDetails.price})`;
+      if (ceremonyDetails.price === 0) {
+        summaryCeremony.textContent = `${ceremonyDetails.name} (Pricing Varies)`;
+      } else {
+        summaryCeremony.textContent = `${ceremonyDetails.name} ($${ceremonyDetails.price})`;
+      }
     }
 
     // Addons Choices
@@ -116,7 +124,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Update Total Display
     if (summaryTotal) {
-      summaryTotal.textContent = `$${totalPrice}`;
+      if (selectedCeremony === 'special') {
+        summaryTotal.textContent = totalPrice > 0 ? `$${totalPrice} + Custom` : 'Custom Pricing';
+      } else {
+        summaryTotal.textContent = `$${totalPrice}`;
+      }
     }
   }
 
@@ -155,6 +167,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize Summary
   updateSummary();
+
+  // Bespoke section toggle logic
+  const toggleBespokeBtn = document.getElementById('toggle-bespoke-btn');
+  const bespokeGrid = document.getElementById('bespoke-grid');
+  
+  console.log("Bespoke elements:", { toggleBespokeBtn, bespokeGrid });
+  
+  if (toggleBespokeBtn && bespokeGrid) {
+    toggleBespokeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log("Show All button clicked!");
+      const isExpanded = bespokeGrid.classList.contains('expanded');
+      if (isExpanded) {
+        bespokeGrid.classList.remove('expanded');
+        toggleBespokeBtn.textContent = 'Show All Options';
+        const bespokeHeader = document.querySelector('#services h3:nth-of-type(2)');
+        if (bespokeHeader) {
+          bespokeHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        bespokeGrid.classList.add('expanded');
+        toggleBespokeBtn.textContent = 'Show Less Options';
+      }
+    });
+  }
 
   // Populate form with planner settings on CTA click
   if (plannerInquiryBtn && messageInput) {

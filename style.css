@@ -514,6 +514,182 @@ button {
   transform: translateX(4px);
 }
 
+/* Card with background image styling */
+.service-card.service-card-with-bg {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #0d1527; /* Dark fallback */
+  color: #ffffff;
+  z-index: 1;
+}
+
+/* Background image layer using ::before */
+.service-card.service-card-with-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  opacity: 1;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Ensure background image is always visible */
+.service-card.service-card-with-bg:hover::before {
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* Gradient overlay to ensure text readability */
+.service-card.service-card-with-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(15, 23, 42, 0.55) 0%,
+    rgba(15, 23, 42, 0.75) 45%,
+    rgba(15, 23, 42, 0.90) 100%
+  );
+  z-index: -1;
+  transition: opacity 0.5s ease;
+}
+
+/* Hover effects */
+.service-card.service-card-with-bg:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Specific background images for core packages */
+.service-card.card-bg-raft::before {
+  background-image: url('assets/card_raft.png');
+}
+
+.service-card.card-bg-snorkel::before {
+  background-image: url('assets/card_snorkel.png');
+}
+
+.service-card.card-bg-helicopter::before {
+  background-image: url('assets/card_helicopter.png');
+}
+
+.service-card.card-bg-plane::before {
+  background-image: url('assets/card_plane.png');
+}
+
+.service-card.card-bg-unattended::before {
+  background-image: url('assets/card_unattended.png');
+}
+
+.service-card.card-bg-special::before {
+  background-image: url('assets/card_special.png');
+}
+
+.service-card.card-bg-kahu::before {
+  background-image: url('assets/card_kahu.png');
+}
+
+.service-card.card-bg-puolo::before {
+  background-image: url('assets/card_puolo.png');
+}
+
+.service-card.card-bg-urns::before {
+  background-image: url('assets/card_urns.png');
+}
+
+.service-card.card-bg-petals::before {
+  background-image: url('assets/card_petals.png');
+}
+
+.service-card.card-bg-leis::before {
+  background-image: url('assets/card_leis.png');
+}
+
+.service-card.card-bg-vocalist::before {
+  background-image: url('assets/card_vocalist.png');
+}
+
+.service-card.card-bg-song-tribute::before {
+  background-image: url('assets/card_song_tribute.png');
+}
+
+.service-card.card-bg-doves::before {
+  background-image: url('assets/card_doves.png');
+}
+
+.service-card.card-bg-beach-service::before {
+  background-image: url('assets/card_special.png');
+}
+
+.service-card.card-bg-photography::before {
+  background-image: url('assets/hero.png');
+}
+
+.service-card.card-bg-wreath::before {
+  background-image: url('assets/lei.png');
+}
+
+.service-card.card-bg-bamboo-float::before {
+  background-image: url('assets/card_puolo.png');
+}
+
+.service-card.card-bg-sprays::before {
+  background-image: url('assets/card_bespoke.png');
+}
+
+/* Content overrides for cards with background images */
+.service-card.service-card-with-bg .service-title {
+  color: #ffffff !important; /* Ensure override in both modes */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.service-card.service-card-with-bg .service-desc {
+  color: #d1d5db !important; /* Soft light gray */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.service-card.service-card-with-bg .service-meta {
+  color: #fef08a !important; /* Warm gold */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Icons styling inside background cards */
+.service-card.service-card-with-bg .service-icon-wrapper {
+  background-color: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.service-card.service-card-with-bg:hover .service-icon-wrapper {
+  background-color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.service-card.service-card-with-bg .service-icon {
+  fill: #ffffff;
+}
+
+.service-card.service-card-with-bg:hover .service-icon {
+  fill: var(--color-primary);
+}
+
+/* Button overrides */
+.service-card.service-card-with-bg .service-card-btn {
+  color: #ffffff;
+}
+
+.service-card.service-card-with-bg .service-card-btn:hover {
+  color: var(--color-accent);
+}
+
 /* Ceremony Planner Wizard */
 .planner-section {
   background-color: var(--color-bg-white);
@@ -1101,4 +1277,65 @@ button {
     gap: 1rem;
     text-align: center;
   }
+}
+
+/* Bespoke Options Section Toggling */
+.services-grid .bespoke-extra {
+  display: none !important;
+}
+
+.services-grid.expanded .bespoke-extra {
+  display: flex !important;
+  animation: fadeInCard 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Styled button for toggle options */
+.btn-toggle-options {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 1px solid var(--color-primary);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(30, 58, 138, 0.15);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-toggle-options:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(30, 58, 138, 0.25);
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .btn-toggle-options {
+    background-color: var(--color-accent);
+    color: var(--color-primary);
+    border-color: var(--color-accent);
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.15);
+  }
+  
+  .btn-toggle-options:hover {
+    background-color: var(--color-accent-light);
+    border-color: var(--color-accent-light);
+    color: var(--color-primary);
+    box-shadow: 0 6px 20px rgba(251, 191, 36, 0.25);
+  }
+}
+
+/* Interactive select cues for Ceremony Planner options */
+.planner-option {
+  cursor: pointer !important;
 }
