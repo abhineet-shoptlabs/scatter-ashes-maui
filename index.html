@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scatter Ashes Maui | Serene Ash Scattering Ceremonies in Hawai'i</title>
+  <title data-i18n="hero_title">Scatter Ashes Maui | Serene Ash Scattering Ceremonies in Hawai'i</title>
   <meta name="description" content="Discover a peaceful, respectful way to honor your loved one in Maui, Hawai'i. Offering personalized full-service ash scattering ceremonies at sea or by air, embodying the spirit of Kokua and Aloha.">
   <link rel="stylesheet" href="style.css?v=1.1">
 </head>
@@ -18,15 +18,31 @@
       
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
-          <li><a href="#" class="nav-link active">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
-          <li><a href="#planner" class="nav-link">Ceremony Planner</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#" class="nav-link active" data-i18n="nav_home">Home</a></li>
+          <li><a href="#about" class="nav-link" data-i18n="nav_about">About</a></li>
+          <li><a href="#services" class="nav-link" data-i18n="nav_services">Services</a></li>
+          <li><a href="#planner" class="nav-link" data-i18n="nav_planner">Ceremony Planner</a></li>
+          <li><a href="#contact" class="nav-link" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
       
-      <a href="#planner" class="nav-btn">Plan Ceremony</a>
+      <a href="#planner" class="nav-btn" data-i18n="nav_plan_btn">Plan Ceremony</a>
+
+      <div class="lang-selector-container">
+        <select id="lang-select" class="lang-select" aria-label="Select Language">
+          <option value="en">English (EN)</option>
+          <option value="es">Español (ES)</option>
+          <option value="pt">Português (PT)</option>
+          <option value="fr">Français (FR)</option>
+          <option value="de">Deutsch (DE)</option>
+          <option value="it">Italiano (IT)</option>
+          <option value="nl">Nederlands (NL)</option>
+          <option value="pl">Polski (PL)</option>
+          <option value="ru">Русский (RU)</option>
+          <option value="tr">Türkçe (TR)</option>
+          <option value="ja">日本語 (JA)</option>
+        </select>
+      </div>
 
       <button class="nav-toggle" aria-label="Toggle Menu">
         <span></span>
@@ -40,12 +56,12 @@
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-tagline">Farewell with Aloha</p>
-      <h1 class="hero-title">Honoring Lives amidst Maui's Natural Beauty</h1>
-      <p class="hero-description">We handle every detail of your loved one's Celebration of Life, offering full-service support, gentle ceremonies, and peace of mind when you need it most.</p>
+      <p class="hero-tagline" data-i18n="hero_tagline">Farewell with Aloha</p>
+      <h1 class="hero-title" data-i18n="hero_title">Honoring Lives amidst Maui's Natural Beauty</h1>
+      <p class="hero-description" data-i18n="hero_desc">We handle every detail of your loved one's Celebration of Life, offering full-service support, gentle ceremonies, and peace of mind when you need it most.</p>
       <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">Our Services</a>
-        <a href="#planner" class="btn btn-secondary">Interactive Planner</a>
+        <a href="#services" class="btn btn-primary" data-i18n="hero_btn_services">Our Services</a>
+        <a href="#planner" class="btn btn-secondary" data-i18n="hero_btn_planner">Interactive Planner</a>
       </div>
     </div>
   </section>
@@ -54,15 +70,15 @@
   <section id="about" class="section-padding kokua-section">
     <div class="container">
       <div class="kokua-content">
-        <span class="kokua-badge">Embodying Kokua</span>
-        <h2 class="kokua-title">Compassionate Support Every Step of the Way</h2>
-        <p class="kokua-text">
+        <span class="kokua-badge" data-i18n="about_badge">Embodying Kokua</span>
+        <h2 class="kokua-title" data-i18n="about_title">Compassionate Support Every Step of the Way</h2>
+        <p class="kokua-text" data-i18n="about_text">
           At Scatter Ashes Maui, we handle all the details of your loved one's Celebration of Life so you don't have to. 
           <strong>Kokua</strong> is a Hawaiian word meaning "help", "aid" or "assistance". It embodies the spirit of lending a hand 
           or offering support to others in need of it. Discover peace of mind with our personalized, full service care 
           embodying the spirit of Kokua - offering support every step of the way with warmth, understanding, and respect.
         </p>
-        <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;">Speak to an Advisor</a>
+        <a href="#contact" class="btn btn-primary" style="margin-top: 1rem;" data-i18n="about_btn">Speak to an Advisor</a>
       </div>
     </div>
   </section>
@@ -71,12 +87,12 @@
   <section id="services" class="section-padding">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">What We Offer</h2>
-        <p class="section-subtitle">Discover the packages and customized options from our service brochure. Scatter Ashes Maui is here to offer kokua, making your experience easier with a touch of aloha.</p>
+        <h2 class="section-title" data-i18n="services_title">What We Offer</h2>
+        <p class="section-subtitle" data-i18n="services_subtitle">Discover the packages and customized options from our service brochure. Scatter Ashes Maui is here to offer kokua, making your experience easier with a touch of aloha.</p>
       </div>
 
       <!-- Core Scattering Packages -->
-      <h3 class="planner-group-title" style="margin-bottom: 2rem; justify-content: center;">
+      <h3 class="planner-group-title" style="margin-bottom: 2rem; justify-content: center;" data-i18n="services_core_title">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M4,17a2,2,0,0,1,2-2H18a2,2,0,0,1,2,2V19a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2ZM20,8.5v4H4v-4l8-4Z"/></svg>
         Core Scattering Packages (Ash Scattering Kokua)
       </h3>
@@ -84,186 +100,186 @@
         
         <!-- Super Raft -->
         <div class="service-card service-card-with-bg card-bg-raft">
-          <h3 class="service-title">Super Raft (Ocean)</h3>
-          <p class="service-desc">Set sail off Maui's coast with a larger vessel. Provides spacious seating and comfortable access for family members to say their goodbyes.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Capacity: 35 pax | Starting at $2,500</div>
+          <h3 class="service-title" data-i18n="service_raft_title">Super Raft (Ocean)</h3>
+          <p class="service-desc" data-i18n="service_raft_desc">Set sail off Maui's coast with a larger vessel. Provides spacious seating and comfortable access for family members to say their goodbyes.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_raft_meta">Capacity: 35 pax | Starting at $2,500</div>
           <a href="#" class="service-card-btn" data-service="Super Raft (35 pax) - $2,500">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
         <!-- Scatter & Snorkel -->
         <div class="service-card service-card-with-bg card-bg-snorkel">
-          <h3 class="service-title">Scatter & Snorkel (Ocean)</h3>
-          <p class="service-desc">A beautiful vessel option combining a respectful ceremony with a reflective snorkel in Maui's tropical marine environment.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Capacity: 20 pax | Starting at $3,360</div>
+          <h3 class="service-title" data-i18n="service_snorkel_title">Scatter & Snorkel (Ocean)</h3>
+          <p class="service-desc" data-i18n="service_snorkel_desc">A beautiful vessel option combining a respectful ceremony with a reflective snorkel in Maui's tropical marine environment.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_snorkel_meta">Capacity: 20 pax | Starting at $3,360</div>
           <a href="#" class="service-card-btn" data-service="Scatter & Snorkel (20 pax) - $3,360">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
         <!-- Helicopter -->
         <div class="service-card service-card-with-bg card-bg-helicopter">
-          <h3 class="service-title">Helicopter (Air)</h3>
-          <p class="service-desc">A premium air-based tribute providing sweeping coastal and mountain views as cremains are committed to the wind.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Capacity: 3 pax | Starting at $1,500</div>
+          <h3 class="service-title" data-i18n="service_helicopter_title">Helicopter (Air)</h3>
+          <p class="service-desc" data-i18n="service_helicopter_desc">A premium air-based tribute providing sweeping coastal and mountain views as cremains are committed to the wind.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_helicopter_meta">Capacity: 3 pax | Starting at $1,500</div>
           <a href="#" class="service-card-btn" data-service="Helicopter (3 pax) - $1,500">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
         <!-- Fixed Wing Plane -->
         <div class="service-card service-card-with-bg card-bg-plane">
-          <h3 class="service-title">Fixed Wing Plane (Air)</h3>
-          <p class="service-desc">Scattering cremains by plane carries them across the island's breathtaking vistas. A serene, quiet, and expansive aerial memorial.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Capacity: 3 pax | Starting at $1,055</div>
+          <h3 class="service-title" data-i18n="service_plane_title">Fixed Wing Plane (Air)</h3>
+          <p class="service-desc" data-i18n="service_plane_desc">Scattering cremains by plane carries them across the island's breathtaking vistas. A serene, quiet, and expansive aerial memorial.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_plane_meta">Capacity: 3 pax | Starting at $1,055</div>
           <a href="#" class="service-card-btn" data-service="Fixed Wing Plane (3 pax) - $1,055">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
         <!-- Unattended Package -->
         <div class="service-card service-card-with-bg card-bg-unattended">
-          <h3 class="service-title">Unattended Package</h3>
-          <p class="service-desc">For those unable to attend, we offer compassionate services, coordinating with estate representatives or handling the ceremony on your behalf.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Compassionate Care | $1,500</div>
+          <h3 class="service-title" data-i18n="service_unattended_title">Unattended Package</h3>
+          <p class="service-desc" data-i18n="service_unattended_desc">For those unable to attend, we offer compassionate services, coordinating with estate representatives or handling the ceremony on your behalf.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_unattended_meta">Compassionate Care | $1,500</div>
           <a href="#" class="service-card-btn" data-service="Unattended Package - $1,500">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
 
         <!-- Special Requests -->
         <div class="service-card service-card-with-bg card-bg-special">
-          <h3 class="service-title">Special Requests</h3>
-          <p class="service-desc">Creating multiple member services, pet ceremonies, and ceremonies on land.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Custom Planning | Pricing Varies</div>
+          <h3 class="service-title" data-i18n="service_special_title">Special Requests</h3>
+          <p class="service-desc" data-i18n="service_special_desc">Creating multiple member services, pet ceremonies, and ceremonies on land.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_special_meta">Custom Planning | Pricing Varies</div>
           <a href="#" class="service-card-btn" data-service="Special Requests (Multiple members, pets, or land ceremonies)">
-            Inquire
+            <span data-i18n="inquire_btn_text">Inquire</span>
             <svg viewBox="0 0 24 24"><path d="M5,12H19M19,12L12,5M19,12L12,19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
         </div>
       </div>
 
       <!-- Bespoke Customizable Options -->
-      <h3 class="planner-group-title" style="margin-bottom: 2rem; justify-content: center;">
+      <h3 class="planner-group-title" style="margin-bottom: 2rem; justify-content: center;" data-i18n="services_bespoke_title">
         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
         Bespoke Options & Add-ons
       </h3>
       <div class="services-grid" id="bespoke-grid">
         <!-- 1. Kahu Clergy -->
         <div class="service-card service-card-with-bg card-bg-kahu">
-          <h3 class="service-title">Kahu Clergy</h3>
-          <p class="service-desc">Hawaiian style, non-denominational spiritual advisor or minister providing blessings and traditional Hawaiian context.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $450</div>
-          <a href="#" class="service-card-btn" data-service="Kahu Clergy - $450">Inquire</a>
+          <h3 class="service-title" data-i18n="service_kahu_title">Kahu Clergy</h3>
+          <p class="service-desc" data-i18n="service_kahu_desc">Hawaiian style, non-denominational spiritual advisor or minister providing blessings and traditional Hawaiian context.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_kahu_meta">Rate: $450</div>
+          <a href="#" class="service-card-btn" data-service="Kahu Clergy - $450" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 2. Hawaiian Pu'olo -->
         <div class="service-card service-card-with-bg card-bg-puolo">
-          <h3 class="service-title">Hawaiian Pu'olo (Ti-leaf Urn)</h3>
-          <p class="service-desc">A sacred, traditional ti leaf eco-urn handcrafted in Hawai'i using natural greenery and local anthurium flowers.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $400 / each</div>
-          <a href="#" class="service-card-btn" data-service="Hawaiian Pu'olo (Ti-Leaf Urn) - $400">Inquire</a>
+          <h3 class="service-title" data-i18n="service_puolo_title">Hawaiian Pu'olo (Ti-leaf Urn)</h3>
+          <p class="service-desc" data-i18n="service_puolo_desc">A sacred, traditional ti leaf eco-urn handcrafted in Hawai'i using natural greenery and local anthurium flowers.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_puolo_meta">Rate: $400 / each</div>
+          <a href="#" class="service-card-btn" data-service="Hawaiian Pu'olo (Ti-Leaf Urn) - $400" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 3. Biodegradable Urns -->
         <div class="service-card service-card-with-bg card-bg-urns">
-          <h3 class="service-title">Biodegradable Urns</h3>
-          <p class="service-desc">Ocean-safe, eco-friendly urns made of biodegradable materials designed to release cremains gently into the sea.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: Starts at $165</div>
-          <a href="#" class="service-card-btn" data-service="Biodegradable Urns (starts at $165)">Inquire</a>
+          <h3 class="service-title" data-i18n="service_urns_title">Biodegradable Urns</h3>
+          <p class="service-desc" data-i18n="service_urns_desc">Ocean-safe, eco-friendly urns made of biodegradable materials designed to release cremains gently into the sea.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_urns_meta">Rate: Starts at $165</div>
+          <a href="#" class="service-card-btn" data-service="Biodegradable Urns (starts at $165)" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 4. Bags of Fresh Flower Petals -->
         <div class="service-card service-card-with-bg card-bg-petals">
-          <h3 class="service-title">Fresh Flower Petals</h3>
-          <p class="service-desc">Bags of loose fresh flower petals to scatter on the water as a beautiful and colorful tribute.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $30 / each</div>
-          <a href="#" class="service-card-btn" data-service="Bags of fresh flower petals - $30">Inquire</a>
+          <h3 class="service-title" data-i18n="service_petals_title">Fresh Flower Petals</h3>
+          <p class="service-desc" data-i18n="service_petals_desc">Bags of loose fresh flower petals to scatter on the water as a beautiful and colorful tribute.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_petals_meta">Rate: $30 / each</div>
+          <a href="#" class="service-card-btn" data-service="Bags of fresh flower petals - $30" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 5. Fresh Ti Leaf / Orchid Leis -->
         <div class="service-card service-card-with-bg card-bg-leis">
-          <h3 class="service-title">Ti Leaf / Orchid Leis</h3>
-          <p class="service-desc">Ocean-safe traditional leis crafted with fresh ti leaves or orchids to float alongside the ashes.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $40 / each</div>
-          <a href="#" class="service-card-btn" data-service="Fresh Ti Leaf / Orchid Leis - $40">Inquire</a>
+          <h3 class="service-title" data-i18n="service_leis_title">Ti Leaf / Orchid Leis</h3>
+          <p class="service-desc" data-i18n="service_leis_desc">Ocean-safe traditional leis crafted with fresh ti leaves or orchids to float alongside the ashes.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_leis_meta">Rate: $40 / each</div>
+          <a href="#" class="service-card-btn" data-service="Fresh Ti Leaf / Orchid Leis - $40" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 6. Hawaiian Ukulele Vocalist -->
         <div class="service-card service-card-with-bg card-bg-vocalist">
-          <h3 class="service-title">Hawaiian Ukulele Vocalist</h3>
-          <p class="service-desc">Serene melodies and aloha vibes by an award-winning local singer playing the ukulele.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $500</div>
-          <a href="#" class="service-card-btn" data-service="Hawaiian Ukulele Vocalist - $500">Inquire</a>
+          <h3 class="service-title" data-i18n="service_vocalist_title">Hawaiian Ukulele Vocalist</h3>
+          <p class="service-desc" data-i18n="service_vocalist_desc">Serene melodies and aloha vibes by an award-winning local singer playing the ukulele.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_vocalist_meta">Rate: $500</div>
+          <a href="#" class="service-card-btn" data-service="Hawaiian Ukulele Vocalist - $500" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 7. Personalized Song -->
         <div class="service-card service-card-with-bg card-bg-song-tribute bespoke-extra">
-          <h3 class="service-title">Personalized Song Tribute</h3>
-          <p class="service-desc">A professional songwriter creates and performs a personalized song dedicated entirely to your loved one.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: Starts at $295</div>
-          <a href="#" class="service-card-btn" data-service="Personalized Song (starts at $295)">Inquire</a>
+          <h3 class="service-title" data-i18n="service_song_title">Personalized Song Tribute</h3>
+          <p class="service-desc" data-i18n="service_song_desc">A professional songwriter creates and performs a personalized song dedicated entirely to your loved one.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_song_meta">Rate: Starts at $295</div>
+          <a href="#" class="service-card-btn" data-service="Personalized Song (starts at $295)" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 8. White Dove Release -->
         <div class="service-card service-card-with-bg card-bg-doves bespoke-extra">
-          <h3 class="service-title">White Dove Release</h3>
-          <p class="service-desc">A symbolic and peaceful release of white doves over the waters of Maui during the ceremony.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $250</div>
-          <a href="#" class="service-card-btn" data-service="White Dove Release - $250">Inquire</a>
+          <h3 class="service-title" data-i18n="service_doves_title">White Dove Release</h3>
+          <p class="service-desc" data-i18n="service_doves_desc">A symbolic and peaceful release of white doves over the waters of Maui during the ceremony.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_doves_meta">Rate: $250</div>
+          <a href="#" class="service-card-btn" data-service="White Dove Release - $250" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 9. Memorial Beach/Land Service -->
         <div class="service-card service-card-with-bg card-bg-beach-service bespoke-extra">
-          <h3 class="service-title">Memorial Beach/Land Service</h3>
-          <p class="service-desc">A customized land or beach ceremony for those who prefer to gather onshore amidst Maui's scenery.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: Starts at $450</div>
-          <a href="#" class="service-card-btn" data-service="Memorial Beach/Land Service (starts at $450)">Inquire</a>
+          <h3 class="service-title" data-i18n="service_beach_title">Memorial Beach/Land Service</h3>
+          <p class="service-desc" data-i18n="service_beach_desc">A customized land or beach ceremony for those who prefer to gather onshore amidst Maui's scenery.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_beach_meta">Rate: Starts at $450</div>
+          <a href="#" class="service-card-btn" data-service="Memorial Beach/Land Service (starts at $450)" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 10. Professional Photography -->
         <div class="service-card service-card-with-bg card-bg-photography bespoke-extra">
-          <h3 class="service-title">Professional Photography</h3>
-          <p class="service-desc">A professional photographer captures high-resolution memories, vital for both attended and unattended services.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $500</div>
-          <a href="#" class="service-card-btn" data-service="Professional Photography - $500">Inquire</a>
+          <h3 class="service-title" data-i18n="service_photo_title">Professional Photography</h3>
+          <p class="service-desc" data-i18n="service_photo_desc">A professional photographer captures high-resolution memories, vital for both attended and unattended services.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_photo_meta">Rate: $500</div>
+          <a href="#" class="service-card-btn" data-service="Professional Photography - $500" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 11. Floating Sea Wreath -->
         <div class="service-card service-card-with-bg card-bg-wreath bespoke-extra">
-          <h3 class="service-title">Floating Sea Wreath</h3>
-          <p class="service-desc">A beautiful, circular floral wreath made of fresh, ocean-safe flowers designed to float gracefully on the waves.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $300 / each</div>
-          <a href="#" class="service-card-btn" data-service="Floating Sea Wreath - $300">Inquire</a>
+          <h3 class="service-title" data-i18n="service_wreath_title">Floating Sea Wreath</h3>
+          <p class="service-desc" data-i18n="service_wreath_desc">A beautiful, circular floral wreath made of fresh, ocean-safe flowers designed to float gracefully on the waves.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_wreath_meta">Rate: $300 / each</div>
+          <a href="#" class="service-card-btn" data-service="Floating Sea Wreath - $300" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 12. Bamboo Float -->
         <div class="service-card service-card-with-bg card-bg-bamboo-float bespoke-extra">
-          <h3 class="service-title">Bamboo Float</h3>
-          <p class="service-desc">An elegant, organic floral arrangement styled on a floating bamboo base for a serene ocean farewell.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: $325 / each</div>
-          <a href="#" class="service-card-btn" data-service="Bamboo Float - $325">Inquire</a>
+          <h3 class="service-title" data-i18n="service_bamboo_title">Bamboo Float</h3>
+          <p class="service-desc" data-i18n="service_bamboo_desc">An elegant, organic floral arrangement styled on a floating bamboo base for a serene ocean farewell.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_bamboo_meta">Rate: $325 / each</div>
+          <a href="#" class="service-card-btn" data-service="Bamboo Float - $325" data-i18n="inquire_btn_text">Inquire</a>
         </div>
 
         <!-- 13. Memorial Sprays & Wreaths on Easel -->
         <div class="service-card service-card-with-bg card-bg-sprays bespoke-extra">
-          <h3 class="service-title">Sprays & Wreaths on Easel</h3>
-          <p class="service-desc">Easel-mounted floral arrangements for display on the vessel deck or beach shore during the tribute.</p>
-          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;">Rate: Starts at $400</div>
-          <a href="#" class="service-card-btn" data-service="Memorial Sprays & Wreaths on Easel (starts at $400)">Inquire</a>
+          <h3 class="service-title" data-i18n="service_easel_title">Sprays & Wreaths on Easel</h3>
+          <p class="service-desc" data-i18n="service_easel_desc">Easel-mounted floral arrangements for display on the vessel deck or beach shore during the tribute.</p>
+          <div class="service-meta" style="font-weight: 700; color: var(--color-accent); margin-bottom: 1.5rem;" data-i18n="service_easel_meta">Rate: Starts at $400</div>
+          <a href="#" class="service-card-btn" data-service="Memorial Sprays & Wreaths on Easel (starts at $400)" data-i18n="inquire_btn_text">Inquire</a>
         </div>
       </div>
       <div style="text-align: center; margin-top: 3rem;">
-        <button id="toggle-bespoke-btn" class="btn btn-toggle-options">Show All Options</button>
+        <button id="toggle-bespoke-btn" class="btn btn-toggle-options" data-i18n="services_toggle_show_all">Show All Options</button>
       </div>
 
-      <div style="text-align: center; margin-top: 4rem; color: var(--color-text-muted); font-size: 0.9rem;">
+      <div style="text-align: center; margin-top: 4rem; color: var(--color-text-muted); font-size: 0.9rem;" data-i18n="services_disclaimer">
         Prices do not include tax and fees, and are subject to change without notice. Inquire about multiple member services, pet ceremonies, and land ceremonies.
       </div>
     </div>
@@ -273,9 +289,9 @@
   <section id="planner" class="section-padding planner-section">
     <div class="container">
       <div class="section-header">
-        <span class="kokua-badge">Interactive Tool</span>
-        <h2 class="section-title">Ceremony Cost & Package Planner</h2>
-        <p class="section-subtitle">Customize a ceremony that reflects your preferences. Toggle choices below to estimate pricing and quickly submit a detailed request to our team.</p>
+        <span class="kokua-badge" data-i18n="planner_badge">Interactive Tool</span>
+        <h2 class="section-title" data-i18n="planner_title">Ceremony Cost & Package Planner</h2>
+        <p class="section-subtitle" data-i18n="planner_subtitle">Customize a ceremony that reflects your preferences. Toggle choices below to estimate pricing and quickly submit a detailed request to our team.</p>
       </div>
 
       <div class="planner-layout">
@@ -284,95 +300,95 @@
           
           <!-- Step 1: Scattering Method -->
           <div class="planner-step-group">
-            <h3 class="planner-group-title">
+            <h3 class="planner-group-title" data-i18n="planner_step1_title">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M12,2L1,21H23M12,6L19.8,18H4.2"/></svg>
               1. Choose Core Scattering Package
             </h3>
             <div class="planner-options-grid">
               <div class="planner-option selected" id="opt-raft">
-                <span class="planner-option-name">Super Raft (35 pax)</span>
+                <span class="planner-option-name" data-i18n="planner_opt_raft_name">Super Raft (35 pax)</span>
                 <span class="planner-option-desc">$2,500</span>
               </div>
               <div class="planner-option" id="opt-snorkel">
-                <span class="planner-option-name">Scatter & Snorkel</span>
+                <span class="planner-option-name" data-i18n="planner_opt_snorkel_name">Scatter & Snorkel</span>
                 <span class="planner-option-desc">$3,360</span>
               </div>
               <div class="planner-option" id="opt-helicopter">
-                <span class="planner-option-name">Helicopter (3 pax)</span>
+                <span class="planner-option-name" data-i18n="planner_opt_helicopter_name">Helicopter (3 pax)</span>
                 <span class="planner-option-desc">$1,500</span>
               </div>
               <div class="planner-option" id="opt-plane">
-                <span class="planner-option-name">Fixed Wing (3 pax)</span>
+                <span class="planner-option-name" data-i18n="planner_opt_plane_name">Fixed Wing (3 pax)</span>
                 <span class="planner-option-desc">$1,055</span>
               </div>
               <div class="planner-option" id="opt-unattended">
-                <span class="planner-option-name">Unattended Package</span>
+                <span class="planner-option-name" data-i18n="planner_opt_unattended_name">Unattended Package</span>
                 <span class="planner-option-desc">$1,500</span>
               </div>
               <div class="planner-option" id="opt-special">
-                <span class="planner-option-name">Special Requests</span>
-                <span class="planner-option-desc">Varies</span>
+                <span class="planner-option-name" data-i18n="planner_opt_special_name">Special Requests</span>
+                <span class="planner-option-desc" data-i18n="planner_opt_varies">Varies</span>
               </div>
             </div>
           </div>
 
           <!-- Step 2: Addons Selection -->
           <div class="planner-step-group">
-            <h3 class="planner-group-title">
+            <h3 class="planner-group-title" data-i18n="planner_step2_title">
               <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"/></svg>
               2. Select Bespoke Options
             </h3>
             <div class="planner-options-grid">
               <div class="planner-option" id="opt-kahu">
-                <span class="planner-option-name">Kahu Clergy</span>
+                <span class="planner-option-name" data-i18n="planner_opt_kahu_name">Kahu Clergy</span>
                 <span class="planner-option-desc">+$450</span>
               </div>
               <div class="planner-option" id="opt-puolo">
-                <span class="planner-option-name">Hawaiian Pu'olo</span>
+                <span class="planner-option-name" data-i18n="planner_opt_puolo_name">Hawaiian Pu'olo</span>
                 <span class="planner-option-desc">+$400</span>
               </div>
               <div class="planner-option" id="opt-urn">
-                <span class="planner-option-name">Biodegradable Urn</span>
+                <span class="planner-option-name" data-i18n="planner_opt_urn_name">Biodegradable Urn</span>
                 <span class="planner-option-desc">+$165</span>
               </div>
               <div class="planner-option" id="opt-petals">
-                <span class="planner-option-name">Flower Petals Bag</span>
+                <span class="planner-option-name" data-i18n="planner_opt_petals_name">Flower Petals Bag</span>
                 <span class="planner-option-desc">+$30</span>
               </div>
               <div class="planner-option" id="opt-leis">
-                <span class="planner-option-name">Ti Leaf/Orchid Leis</span>
+                <span class="planner-option-name" data-i18n="planner_opt_leis_name">Ti Leaf/Orchid Leis</span>
                 <span class="planner-option-desc">+$40</span>
               </div>
               <div class="planner-option" id="opt-ukulele">
-                <span class="planner-option-name">Ukulele Vocalist</span>
+                <span class="planner-option-name" data-i18n="planner_opt_ukulele_name">Ukulele Vocalist</span>
                 <span class="planner-option-desc">+$500</span>
               </div>
               <div class="planner-option" id="opt-song">
-                <span class="planner-option-name">Tribute Song</span>
+                <span class="planner-option-name" data-i18n="planner_opt_song_name">Tribute Song</span>
                 <span class="planner-option-desc">+$295</span>
               </div>
               <div class="planner-option" id="opt-dove">
-                <span class="planner-option-name">White Dove Release</span>
+                <span class="planner-option-name" data-i18n="planner_opt_dove_name">White Dove Release</span>
                 <span class="planner-option-desc">+$250</span>
               </div>
               <div class="planner-option" id="opt-beach">
-                <span class="planner-option-name">Beach/Land Service</span>
+                <span class="planner-option-name" data-i18n="planner_opt_beach_name">Beach/Land Service</span>
                 <span class="planner-option-desc">+$450</span>
               </div>
               <div class="planner-option" id="opt-photo">
-                <span class="planner-option-name">Photo Package</span>
+                <span class="planner-option-name" data-i18n="planner_opt_photo_name">Photo Package</span>
                 <span class="planner-option-desc">+$500</span>
               </div>
               <div class="planner-option" id="opt-sea-wreath">
-                <span class="planner-option-name">Floating Sea Wreath</span>
+                <span class="planner-option-name" data-i18n="planner_opt_sea_wreath_name">Floating Sea Wreath</span>
                 <span class="planner-option-desc">+$300</span>
               </div>
               <div class="planner-option" id="opt-bamboo-float">
-                <span class="planner-option-name">Bamboo Float</span>
+                <span class="planner-option-name" data-i18n="planner_opt_bamboo_float_name">Bamboo Float</span>
                 <span class="planner-option-desc">+$325</span>
               </div>
               <div class="planner-option" id="opt-easel-wreath">
-                <span class="planner-option-name">Sprays & Easel Wreath</span>
+                <span class="planner-option-name" data-i18n="planner_opt_easel_wreath_name">Sprays & Easel Wreath</span>
                 <span class="planner-option-desc">+$400</span>
               </div>
             </div>
@@ -382,24 +398,24 @@
 
         <!-- Sidebar Summary -->
         <aside class="planner-summary-card">
-          <h3 class="summary-title">Your Custom Package</h3>
+          <h3 class="summary-title" data-i18n="summary_card_title">Your Custom Package</h3>
           <ul class="summary-list">
             <li class="summary-item">
-              <span class="summary-item-label">Selected Ceremony</span>
+              <span class="summary-item-label" data-i18n="summary_selected_ceremony">Selected Ceremony</span>
               <span class="summary-item-val" id="summary-ceremony">Super Raft ($2500)</span>
             </li>
             <li class="summary-item" style="flex-direction: column; align-items: flex-start; gap: 0.5rem;">
-              <span class="summary-item-label">Services Included:</span>
+              <span class="summary-item-label" data-i18n="summary_services_included">Services Included:</span>
               <ul id="summary-addons" style="list-style: none; width: 100%; padding-left: 0.75rem; display: flex; flex-direction: column; gap: 0.5rem;">
-                <li class="summary-item"><span class="summary-item-label">Add-ons Selected</span><span class="summary-item-val">None</span></li>
+                <li class="summary-item"><span class="summary-item-label" data-i18n="summary_addons_selected">Add-ons Selected</span><span class="summary-item-val" data-i18n="summary_addons_none">None</span></li>
               </ul>
             </li>
           </ul>
           <div class="summary-total">
-            <span class="summary-total-label">Estimated Price</span>
+            <span class="summary-total-label" data-i18n="summary_total_label">Estimated Price</span>
             <span class="summary-total-val" id="summary-total-val">$2,500</span>
           </div>
-          <button class="btn btn-primary summary-action-btn" id="planner-inquiry-btn">Inquire with this Plan</button>
+          <button class="btn btn-primary summary-action-btn" id="planner-inquiry-btn" data-i18n="summary_action_btn">Inquire with this Plan</button>
         </aside>
       </div>
     </div>
@@ -412,15 +428,15 @@
         <img class="about-img" src="assets/lei.png" alt="A floral lei floating on the peaceful ocean water near Maui at sunset">
       </div>
       <div class="about-content">
-        <span class="kokua-badge">How It All Began</span>
-        <h2 class="section-title" style="text-align: left; margin-bottom: 0;">Ceremonies Crafted with Love</h2>
-        <blockquote class="about-quote">"Over the span of decades, I've lovingly crafted ceremonies as sacred celebrations of life, feeling the presence of each cherished soul..."</blockquote>
-        <p class="about-text">
+        <span class="kokua-badge" data-i18n="history_badge">How It All Began</span>
+        <h2 class="section-title" style="text-align: left; margin-bottom: 0;" data-i18n="history_title">Ceremonies Crafted with Love</h2>
+        <blockquote class="about-quote" data-i18n="history_quote">"Over the span of decades, I've lovingly crafted ceremonies as sacred celebrations of life, feeling the presence of each cherished soul..."</blockquote>
+        <p class="about-text" data-i18n="history_text1">
           In the gentle tradewinds of Maui, amidst the whispers of the sea and the songs of the land, Scatter Ashes Maui was born. 
           Inspired by the aloha spirit and sacred traditions of these islands, we envisioned a sanctuary of peace and comfort for those 
           seeking to honor their beloved departed. 
         </p>
-        <p class="about-text">
+        <p class="about-text" data-i18n="history_text2">
           With every ceremony, we embrace the essence of kokua, offering compassionate care, meticulous attention to detail, 
           and a Full-Service approach to ensure every aspect of the journey is handled with utmost professionalism.
         </p>
@@ -434,8 +450,8 @@
       
       <div class="contact-info-panel">
         <div>
-          <h2 class="contact-info-title">Begin Planning</h2>
-          <p class="contact-info-desc">Reach out to us today. We are here to answer all questions, check availability, and help you customize the perfect celebration.</p>
+          <h2 class="contact-info-title" data-i18n="contact_title">Begin Planning</h2>
+          <p class="contact-info-desc" data-i18n="contact_desc">Reach out to us today. We are here to answer all questions, check availability, and help you customize the perfect celebration.</p>
         </div>
 
         <div class="info-items">
@@ -446,8 +462,8 @@
               </svg>
             </div>
             <div>
-              <div class="info-label">Location</div>
-              <div class="info-value">Wailuku, Hawai'i</div>
+              <div class="info-label" data-i18n="contact_loc_label">Location</div>
+              <div class="info-value" data-i18n="contact_loc_val">Wailuku, Hawai'i</div>
             </div>
           </div>
 
@@ -458,7 +474,7 @@
               </svg>
             </div>
             <div>
-              <div class="info-label">Email</div>
+              <div class="info-label" data-i18n="contact_email_label">Email</div>
               <div class="info-value"><a href="mailto:info@scatterashesmaui.com">info@scatterashesmaui.com</a></div>
             </div>
           </div>
@@ -470,7 +486,7 @@
               </svg>
             </div>
             <div>
-              <div class="info-label">Phone</div>
+              <div class="info-label" data-i18n="contact_phone_label">Phone</div>
               <div class="info-value"><a href="tel:808-298-3473">808-298-3473</a></div>
             </div>
           </div>
@@ -481,27 +497,27 @@
       <form class="contact-form" id="inquiry-form" action="#" method="POST">
         <div class="form-grid">
           <div>
-            <label class="form-label" for="form-name">Name *</label>
+            <label class="form-label" for="form-name" data-i18n="form_name_label">Name *</label>
             <input class="form-input" type="text" id="form-name" placeholder="Your Name" required>
           </div>
           <div>
-            <label class="form-label" for="form-email">Email *</label>
+            <label class="form-label" for="form-email" data-i18n="form_email_label">Email *</label>
             <input class="form-input" type="email" id="form-email" placeholder="email@address.com" required>
           </div>
           <div>
-            <label class="form-label" for="form-phone">Phone</label>
+            <label class="form-label" for="form-phone" data-i18n="form_phone_label">Phone</label>
             <input class="form-input" type="tel" id="form-phone" placeholder="808-000-0000">
           </div>
           <div>
-            <label class="form-label" for="form-date">Preferred Date</label>
+            <label class="form-label" for="form-date" data-i18n="form_date_label">Preferred Date</label>
             <input class="form-input" type="date" id="form-date">
           </div>
           <div class="form-group-full">
-            <label class="form-label" for="form-message">Inquiry Details</label>
+            <label class="form-label" for="form-message" data-i18n="form_msg_label">Inquiry Details</label>
             <textarea class="form-textarea" id="form-message" placeholder="Describe the style of ceremony, dates, and package add-ons you are interested in..."></textarea>
           </div>
         </div>
-        <button class="btn btn-primary" type="submit" style="width: 100%; text-align: center;">Send Inquiry</button>
+        <button class="btn btn-primary" type="submit" style="width: 100%; text-align: center;" data-i18n="form_submit_btn">Send Inquiry</button>
       </form>
 
     </div>
@@ -511,11 +527,11 @@
   <footer class="footer">
     <div class="container footer-layout">
       <ul class="footer-nav">
-        <li><a href="#home" class="footer-nav-link">Home</a></li>
-        <li><a href="#about" class="footer-nav-link">About</a></li>
-        <li><a href="#services" class="footer-nav-link">Services</a></li>
-        <li><a href="#planner" class="footer-nav-link">Planner</a></li>
-        <li><a href="#contact" class="footer-nav-link">Contact</a></li>
+        <li><a href="#home" class="footer-nav-link" data-i18n="nav_home">Home</a></li>
+        <li><a href="#about" class="footer-nav-link" data-i18n="nav_about">About</a></li>
+        <li><a href="#services" class="footer-nav-link" data-i18n="nav_services">Services</a></li>
+        <li><a href="#planner" class="footer-nav-link" data-i18n="nav_planner">Planner</a></li>
+        <li><a href="#contact" class="footer-nav-link" data-i18n="nav_contact">Contact</a></li>
       </ul>
       <div class="footer-divider"></div>
       <div class="footer-bottom">
@@ -532,9 +548,9 @@
           <path d="M9,20.42L2.79,14.21L5.62,11.38L9,14.77L18.88,4.88L21.71,7.71L9,20.42Z"/>
         </svg>
       </div>
-      <h3 class="modal-title">Mahalo</h3>
-      <p class="modal-text">Your ceremony request has been submitted successfully. A representative will contact you shortly with dates and details.</p>
-      <button class="btn btn-primary" id="modal-close-btn" style="padding: 0.75rem 2rem;">Back to Site</button>
+      <h3 class="modal-title" data-i18n="modal_title">Mahalo</h3>
+      <p class="modal-text" data-i18n="modal_text">Your ceremony request has been submitted successfully. A representative will contact you shortly with dates and details.</p>
+      <button class="btn btn-primary" id="modal-close-btn" style="padding: 0.75rem 2rem;" data-i18n="modal_btn">Back to Site</button>
     </div>
   </div>
 

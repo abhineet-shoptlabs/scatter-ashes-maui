@@ -15,35 +15,98 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (navToggle) {
     navToggle.addEventListener('click', () => {
-      // Toggle a class or show simple drawer
       alert("Mobile menu opened! In a fully integrated environment, this displays a navigation drawer. Continuing using modern web interface.");
     });
+  }
+
+  // Internationalization System
+  let currentTranslations = {};
+  const langSelect = document.getElementById('lang-select');
+
+  async function loadTranslations(lang) {
+    try {
+      const response = await fetch(`locales/${lang}.json`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      currentTranslations = await response.json();
+      applyTranslations();
+      localStorage.setItem('selectedLanguage', lang);
+    } catch (error) {
+      console.error("Could not load translations:", error);
+    }
+  }
+
+  function applyTranslations() {
+    // Translate static elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (currentTranslations[key]) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = currentTranslations[key];
+        } else {
+          // If the element has internal HTML elements (like SVGs or spans), preserve them
+          const innerSVG = el.querySelector('svg');
+          if (innerSVG) {
+            // Find text container span if exists, or just append after text
+            const textSpan = el.querySelector('span[data-i18n]');
+            if (textSpan) {
+              textSpan.textContent = currentTranslations[key];
+            } else {
+              el.innerHTML = currentTranslations[key] + innerSVG.outerHTML;
+            }
+          } else {
+            el.textContent = currentTranslations[key];
+          }
+        }
+      }
+    });
+
+    // Update dynamically rendered sections (Summary Card / Dynamic text strings)
+    updateSummary();
+    updateFormPlaceholder();
+  }
+
+  function updateFormPlaceholder() {
+    const messageInput = document.getElementById('form-message');
+    if (messageInput && currentTranslations['form_msg_placeholder']) {
+      messageInput.placeholder = currentTranslations['form_msg_placeholder'];
+    }
+  }
+
+  if (langSelect) {
+    langSelect.addEventListener('change', (e) => {
+      loadTranslations(e.target.value);
+    });
+
+    // Load initial language from localStorage or default to English
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    langSelect.value = savedLang;
+    loadTranslations(savedLang);
   }
 
   // Cost Configuration
   const PRICING = {
     ceremony: {
-      raft: { name: 'Super Raft (35 pax)', price: 2500 },
-      snorkel: { name: 'Scatter & Snorkel (20 pax)', price: 3360 },
-      helicopter: { name: 'Helicopter (3 pax)', price: 1500 },
-      plane: { name: 'Fixed Wing Plane (3 pax)', price: 1055 },
-      unattended: { name: 'Unattended Package', price: 1500 },
-      special: { name: 'Special Requests (Custom)', price: 0 }
+      raft: { nameKey: 'planner_opt_raft_name', price: 2500 },
+      snorkel: { nameKey: 'planner_opt_snorkel_name', price: 3360 },
+      helicopter: { nameKey: 'planner_opt_helicopter_name', price: 1500 },
+      plane: { nameKey: 'planner_opt_plane_name', price: 1055 },
+      unattended: { nameKey: 'planner_opt_unattended_name', price: 1500 },
+      special: { nameKey: 'planner_opt_special_name', price: 0 }
     },
     addons: {
-      kahu: { name: 'Kahu Clergy (Hawaiian Style)', price: 450 },
-      puolo: { name: 'Hawaiian Pu\'olo (Ti-leaf Urn)', price: 400 },
-      urn: { name: 'Biodegradable Urn', price: 165 },
-      petals: { name: 'Bags of Fresh Flower Petals', price: 30 },
-      leis: { name: 'Fresh Ti Leaf / Orchid Leis', price: 40 },
-      ukulele: { name: 'Hawaiian Ukulele Vocalist', price: 500 },
-      song: { name: 'Personalized Tribute Song', price: 295 },
-      dove: { name: 'White Dove Release', price: 250 },
-      beach: { name: 'Memorial Beach/Land Service', price: 450 },
-      photo: { name: 'Professional Photography', price: 500 },
-      wreath: { name: 'Floating Sea Wreath', price: 300 },
-      bamboo: { name: 'Bamboo Float', price: 325 },
-      easel: { name: 'Sprays & Wreaths on Easel', price: 400 }
+      kahu: { nameKey: 'planner_opt_kahu_name', price: 450 },
+      puolo: { nameKey: 'planner_opt_puolo_name', price: 400 },
+      urn: { nameKey: 'planner_opt_urn_name', price: 165 },
+      petals: { nameKey: 'planner_opt_petals_name', price: 30 },
+      leis: { nameKey: 'planner_opt_leis_name', price: 40 },
+      ukulele: { nameKey: 'planner_opt_ukulele_name', price: 500 },
+      song: { nameKey: 'planner_opt_song_name', price: 295 },
+      dove: { nameKey: 'planner_opt_dove_name', price: 250 },
+      beach: { nameKey: 'planner_opt_beach_name', price: 450 },
+      photo: { nameKey: 'planner_opt_photo_name', price: 500 },
+      wreath: { nameKey: 'planner_opt_sea_wreath_name', price: 300 },
+      bamboo: { nameKey: 'planner_opt_bamboo_float_name', price: 325 },
+      easel: { nameKey: 'planner_opt_easel_wreath_name', price: 400 }
     }
   };
 
@@ -90,11 +153,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ceremony Choice
     const ceremonyDetails = PRICING.ceremony[selectedCeremony];
     totalPrice += ceremonyDetails.price;
+    const localizedCeremonyName = currentTranslations[ceremonyDetails.nameKey] || selectedCeremony;
+
     if (summaryCeremony) {
       if (ceremonyDetails.price === 0) {
-        summaryCeremony.textContent = `${ceremonyDetails.name} (Pricing Varies)`;
+        const pricingVariesText = currentTranslations['service_special_meta'] || '(Pricing Varies)';
+        summaryCeremony.textContent = `${localizedCeremonyName} ${pricingVariesText}`;
       } else {
-        summaryCeremony.textContent = `${ceremonyDetails.name} ($${ceremonyDetails.price})`;
+        summaryCeremony.textContent = `${localizedCeremonyName} ($${ceremonyDetails.price})`;
       }
     }
 
@@ -104,18 +170,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (selectedAddons.size === 0) {
         const li = document.createElement('li');
         li.className = 'summary-item';
-        li.innerHTML = '<span class="summary-item-label">Add-ons Selected</span><span class="summary-item-val">None</span>';
+        const label = currentTranslations['summary_addons_selected'] || 'Add-ons Selected';
+        const value = currentTranslations['summary_addons_none'] || 'None';
+        li.innerHTML = `<span class="summary-item-label">${label}</span><span class="summary-item-val">${value}</span>`;
         summaryAddonsList.appendChild(li);
       } else {
         selectedAddons.forEach(addonKey => {
           const addonDetails = PRICING.addons[addonKey];
           totalPrice += addonDetails.price;
+          const localizedAddonName = currentTranslations[addonDetails.nameKey] || addonKey;
           
           const li = document.createElement('li');
           li.className = 'summary-item';
           li.innerHTML = `
-            <span class="summary-item-label">${addonDetails.name}</span>
-            <span class="summary-item-val">$${addonDetails.price}</span>
+            <span class="summary-item-label">${localizedAddonName}</span>
+            <span class="summary-item-val">+$${addonDetails.price}</span>
           `;
           summaryAddonsList.appendChild(li);
         });
@@ -125,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Update Total Display
     if (summaryTotal) {
       if (selectedCeremony === 'special') {
-        summaryTotal.textContent = totalPrice > 0 ? `$${totalPrice} + Custom` : 'Custom Pricing';
+        const customText = currentTranslations['planner_opt_varies'] || 'Custom Pricing';
+        summaryTotal.textContent = totalPrice > 0 ? `$${totalPrice} + ${customText}` : customText;
       } else {
         summaryTotal.textContent = `$${totalPrice}`;
       }
@@ -165,30 +235,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Initialize Summary
-  updateSummary();
-
   // Bespoke section toggle logic
   const toggleBespokeBtn = document.getElementById('toggle-bespoke-btn');
   const bespokeGrid = document.getElementById('bespoke-grid');
   
-  console.log("Bespoke elements:", { toggleBespokeBtn, bespokeGrid });
-  
   if (toggleBespokeBtn && bespokeGrid) {
     toggleBespokeBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      console.log("Show All button clicked!");
       const isExpanded = bespokeGrid.classList.contains('expanded');
       if (isExpanded) {
         bespokeGrid.classList.remove('expanded');
-        toggleBespokeBtn.textContent = 'Show All Options';
+        toggleBespokeBtn.textContent = currentTranslations['services_toggle_show_all'] || 'Show All Options';
         const bespokeHeader = document.querySelector('#services h3:nth-of-type(2)');
         if (bespokeHeader) {
           bespokeHeader.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       } else {
         bespokeGrid.classList.add('expanded');
-        toggleBespokeBtn.textContent = 'Show Less Options';
+        toggleBespokeBtn.textContent = currentTranslations['services_toggle_show_less'] || 'Show Less Options';
       }
     });
   }
@@ -197,13 +261,23 @@ document.addEventListener('DOMContentLoaded', () => {
   if (plannerInquiryBtn && messageInput) {
     plannerInquiryBtn.addEventListener('click', () => {
       const ceremonyDetails = PRICING.ceremony[selectedCeremony];
+      const localizedCeremonyName = currentTranslations[ceremonyDetails.nameKey] || selectedCeremony;
       let addonsString = '';
       selectedAddons.forEach(key => {
-        addonsString += `\n- ${PRICING.addons[key].name}`;
+        const localizedAddonName = currentTranslations[PRICING.addons[key].nameKey] || key;
+        addonsString += `\n- ${localizedAddonName}`;
       });
-      if (addonsString === '') addonsString = '\n- No additional add-ons selected';
+      if (addonsString === '') {
+        const noneText = currentTranslations['summary_addons_none'] || 'None';
+        addonsString = `\n- ${noneText}`;
+      }
 
-      messageInput.value = `Aloha,\n\nI am planning a ceremony and would like to inquire about the following selections:\n\n- Ceremony Type: ${ceremonyDetails.name}${addonsString}\n\nEstimated package quote: ${summaryTotal.textContent}.\n\nPlease contact me to discuss availability and customizations.`;
+      const greeting = 'Aloha,\n\n';
+      const intro = currentTranslations['contact_desc'] || 'I am planning a ceremony and would like to inquire about the following selections:';
+      const labelType = currentTranslations['summary_selected_ceremony'] || 'Ceremony Type';
+      const estimatedPriceText = currentTranslations['summary_total_label'] || 'Estimated package quote';
+
+      messageInput.value = `${greeting}${intro}\n\n- ${labelType}: ${localizedCeremonyName}${addonsString}\n\n${estimatedPriceText}: ${summaryTotal.textContent}.`;
       
       const contactSection = document.getElementById('contact');
       if (contactSection) {
@@ -217,7 +291,15 @@ document.addEventListener('DOMContentLoaded', () => {
   serviceInquireButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
-      const serviceName = btn.getAttribute('data-service');
+      const parentCard = btn.closest('.service-card');
+      let serviceName = '';
+      if (parentCard) {
+        const titleEl = parentCard.querySelector('.service-title');
+        if (titleEl) serviceName = titleEl.textContent;
+      }
+      if (!serviceName) {
+        serviceName = btn.getAttribute('data-service');
+      }
       if (messageInput) {
         messageInput.value = `Aloha Scatter Ashes Maui team,\n\nI am interested in learning more about your service: "${serviceName}".\n\nPlease let me know your availability and rates.`;
       }
