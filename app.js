@@ -23,28 +23,55 @@ document.addEventListener('DOMContentLoaded', () => {
   // Cost Configuration
   const PRICING = {
     ceremony: {
-      boat: { name: 'Serene Ocean Scatter (Vessel)', price: 1500 },
-      plane: { name: 'Airborne Memorial Scatter (Plane)', price: 900 }
+      raft: { name: 'Super Raft (35 pax)', price: 2500 },
+      snorkel: { name: 'Scatter & Snorkel (20 pax)', price: 3360 },
+      helicopter: { name: 'Helicopter (3 pax)', price: 1500 },
+      plane: { name: 'Fixed Wing Plane (3 pax)', price: 1055 },
+      unattended: { name: 'Unattended Package', price: 1500 }
     },
     addons: {
-      minister: { name: 'Kahu / Minister Service', price: 450 },
-      music: { name: 'Live Musician (Ukulele/Singer)', price: 350 },
-      photo: { name: 'Photography & Videography', price: 600 },
-      urn: { name: 'Eco-friendly Urn & Products', price: 250 }
+      kahu: { name: 'Kahu Clergy (Hawaiian Style)', price: 450 },
+      puolo: { name: 'Hawaiian Pu\'olo (Ti-leaf Urn)', price: 400 },
+      urn: { name: 'Biodegradable Urn (Starts at)', price: 165 },
+      petals: { name: 'Bags of Fresh Flower Petals', price: 30 },
+      leis: { name: 'Fresh Ti Leaf / Orchid Leis', price: 40 },
+      photo: { name: 'Photography Package (Starts at)', price: 300 },
+      ukulele: { name: 'Hawaiian Ukulele Vocalist', price: 500 },
+      hula: { name: 'Single Ceremonial Hula Dancer', price: 350 },
+      dove: { name: 'White Dove Release', price: 250 },
+      song: { name: 'Personalized Tribute Song', price: 295 },
+      beach: { name: 'Memorial Beach/Land Service', price: 450 },
+      wreath: { name: 'Memorial Wreaths on Easel', price: 400 }
     }
   };
 
   // State Management
-  let selectedCeremony = 'boat'; // Default
+  let selectedCeremony = 'raft'; // Default
   const selectedAddons = new Set();
 
   // Elements
-  const optionCeremonyBoat = document.getElementById('opt-boat');
-  const optionCeremonyPlane = document.getElementById('opt-plane');
-  const addonMinister = document.getElementById('opt-minister');
-  const addonMusic = document.getElementById('opt-music');
-  const addonPhoto = document.getElementById('opt-photo');
-  const addonUrn = document.getElementById('opt-urn');
+  const ceremonyOptions = {
+    raft: document.getElementById('opt-raft'),
+    snorkel: document.getElementById('opt-snorkel'),
+    helicopter: document.getElementById('opt-helicopter'),
+    plane: document.getElementById('opt-plane'),
+    unattended: document.getElementById('opt-unattended')
+  };
+
+  const addonOptions = {
+    kahu: document.getElementById('opt-kahu'),
+    puolo: document.getElementById('opt-puolo'),
+    urn: document.getElementById('opt-urn'),
+    petals: document.getElementById('opt-petals'),
+    leis: document.getElementById('opt-leis'),
+    photo: document.getElementById('opt-photo'),
+    ukulele: document.getElementById('opt-ukulele'),
+    hula: document.getElementById('opt-hula'),
+    dove: document.getElementById('opt-dove'),
+    song: document.getElementById('opt-song'),
+    beach: document.getElementById('opt-beach'),
+    wreath: document.getElementById('opt-wreath')
+  };
 
   const summaryCeremony = document.getElementById('summary-ceremony');
   const summaryAddonsList = document.getElementById('summary-addons');
@@ -93,42 +120,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Handle Ceremony Clicks
-  if (optionCeremonyBoat && optionCeremonyPlane) {
-    optionCeremonyBoat.addEventListener('click', () => {
-      selectedCeremony = 'boat';
-      optionCeremonyBoat.classList.add('selected');
-      optionCeremonyPlane.classList.remove('selected');
+  // Handle Ceremony Click Events
+  Object.keys(ceremonyOptions).forEach(key => {
+    const el = ceremonyOptions[key];
+    if (!el) return;
+    el.addEventListener('click', () => {
+      // Clear previous selections from UI
+      Object.keys(ceremonyOptions).forEach(k => {
+        if (ceremonyOptions[k]) {
+          ceremonyOptions[k].classList.remove('selected');
+        }
+      });
+      selectedCeremony = key;
+      el.classList.add('selected');
       updateSummary();
     });
+  });
 
-    optionCeremonyPlane.addEventListener('click', () => {
-      selectedCeremony = 'plane';
-      optionCeremonyPlane.classList.add('selected');
-      optionCeremonyBoat.classList.remove('selected');
-      updateSummary();
-    });
-  }
-
-  // Handle Addon Click Helper
-  function setupAddonToggle(element, addonKey) {
-    if (!element) return;
-    element.addEventListener('click', () => {
-      if (selectedAddons.has(addonKey)) {
-        selectedAddons.delete(addonKey);
-        element.classList.remove('selected');
+  // Handle Addon Click Events
+  Object.keys(addonOptions).forEach(key => {
+    const el = addonOptions[key];
+    if (!el) return;
+    el.addEventListener('click', () => {
+      if (selectedAddons.has(key)) {
+        selectedAddons.delete(key);
+        el.classList.remove('selected');
       } else {
-        selectedAddons.add(addonKey);
-        element.classList.add('selected');
+        selectedAddons.add(key);
+        el.classList.add('selected');
       }
       updateSummary();
     });
-  }
-
-  setupAddonToggle(addonMinister, 'minister');
-  setupAddonToggle(addonMusic, 'music');
-  setupAddonToggle(addonPhoto, 'photo');
-  setupAddonToggle(addonUrn, 'urn');
+  });
 
   // Initialize Summary
   updateSummary();
