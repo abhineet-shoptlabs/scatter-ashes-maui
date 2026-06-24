@@ -115,6 +115,34 @@ document.addEventListener('DOMContentLoaded', () => {
   const selectedAddons = new Set();
   let carryOnFee = 0;
 
+  const PASSENGER_LIMITS = {
+    raft: 35,
+    snorkel: 20,
+    helicopter: 3,
+    plane: 3,
+    unattended: 0,
+    special: 50
+  };
+
+  function updatePassengerLimits(key) {
+    const passengerInput = document.getElementById('res-passengers-count');
+    if (passengerInput) {
+      const limit = PASSENGER_LIMITS[key] !== undefined ? PASSENGER_LIMITS[key] : 50;
+      if (key === 'unattended') {
+        passengerInput.setAttribute('min', '0');
+        passengerInput.setAttribute('max', '0');
+        passengerInput.value = '0';
+      } else {
+        passengerInput.setAttribute('min', '1');
+        passengerInput.setAttribute('max', limit.toString());
+        const currentVal = parseInt(passengerInput.value, 10);
+        if (isNaN(currentVal) || currentVal === 0 || currentVal > limit) {
+          passengerInput.value = limit.toString();
+        }
+      }
+    }
+  }
+
   // Elements
   const ceremonyOptions = {
     raft: document.getElementById('opt-raft'),
@@ -280,8 +308,29 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedCeremony = key;
       el.classList.add('selected');
       updateSummary();
+      updatePassengerLimits(key);
     });
   });
+
+  // Initialize passenger limits with default selectedCeremony
+  updatePassengerLimits(selectedCeremony);
+
+  // Monitor passenger count input limits on change
+  const passengerInput = document.getElementById('res-passengers-count');
+  if (passengerInput) {
+    passengerInput.addEventListener('input', () => {
+      const maxVal = parseInt(passengerInput.getAttribute('max'), 10);
+      const minVal = parseInt(passengerInput.getAttribute('min'), 10);
+      let val = parseInt(passengerInput.value, 10);
+      if (!isNaN(val)) {
+        if (!isNaN(maxVal) && val > maxVal) {
+          passengerInput.value = maxVal.toString();
+        } else if (!isNaN(minVal) && val < minVal) {
+          passengerInput.value = minVal.toString();
+        }
+      }
+    });
+  }
 
   // Handle Addon Click Events
   Object.keys(addonOptions).forEach(key => {
