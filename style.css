@@ -1375,3 +1375,75 @@ button {
 .planner-option {
   cursor: pointer !important;
 }
+
+/* Reservation form inside Ceremony Planner */
+.reservation-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  background: var(--color-glass-bg);
+  border: 1px solid var(--color-glass-border);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  margin-top: 1.5rem;
+  box-shadow: 0 8px 32px var(--color-glass-shadow);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.form-field-half {
+  grid-column: span 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-field-full {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.res-helper-text {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.res-warning-text {
+  font-size: 0.8rem;
+  color: var(--color-accent);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.res-radio-group {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.25rem;
+}
+
+.res-radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.res-radio-label input {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--color-primary);
+}
+
+@media (max-width: 768px) {
+  .reservation-form-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .form-field-half, .form-field-full {
+    grid-column: span 1;
+  }
+}

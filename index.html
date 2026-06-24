@@ -394,6 +394,102 @@
             </div>
           </div>
 
+          <!-- Step 3: Client Reservation Sheet -->
+          <div class="planner-step-group">
+            <h3 class="planner-group-title" data-i18n="planner_step3_title">
+              3. Enter Reservation Details
+            </h3>
+            <div class="reservation-form-grid">
+              
+              <div class="form-field-half">
+                <label class="form-label" for="res-contact-name" data-i18n="res_name">Contact Name *</label>
+                <input class="form-input" type="text" id="res-contact-name" required placeholder="Donna Takaki">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-deceased-name" data-i18n="res_deceased_name">Name of Deceased</label>
+                <input class="form-input" type="text" id="res-deceased-name" placeholder="Richard Takaki">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-relation" data-i18n="res_relationship">Relationship to Deceased</label>
+                <input class="form-input" type="text" id="res-relation" placeholder="Spouse">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-phone-cell" data-i18n="res_phone_cell">Cell Phone *</label>
+                <input class="form-input" type="tel" id="res-phone-cell" required placeholder="424-264-3447">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-phone-home" data-i18n="res_phone_home">Home Phone</label>
+                <input class="form-input" type="tel" id="res-phone-home" placeholder="310-539-4996">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-email-addr" data-i18n="res_email">Email Address *</label>
+                <input class="form-input" type="email" id="res-email-addr" required placeholder="donctake@gmail.com">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-ceremony-date" data-i18n="res_date">Desired Ceremony Date *</label>
+                <input class="form-input" type="date" id="res-ceremony-date" required>
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-ceremony-time" data-i18n="res_time">Desired Ceremony Time *</label>
+                <input class="form-input" type="text" id="res-ceremony-time" required placeholder="2:00pm">
+                <span class="res-helper-text" data-i18n="res_time_help">(Times subject to vessel availability)</span>
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-venue-harbor" data-i18n="res_harbor">Venue/Harbor *</label>
+                <input class="form-input" type="text" id="res-venue-harbor" required placeholder="Ma'alaea">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-passengers-count" data-i18n="res_passengers">Passenger Count *</label>
+                <input class="form-input" type="number" id="res-passengers-count" required min="1" max="50" placeholder="11">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-arrival-date" data-i18n="res_arrival">Arrival Date in Maui</label>
+                <input class="form-input" type="date" id="res-arrival-date">
+              </div>
+
+              <div class="form-field-half">
+                <label class="form-label" for="res-departure-date" data-i18n="res_departure">Departure Date from Maui</label>
+                <input class="form-input" type="date" id="res-departure-date">
+              </div>
+
+              <div class="form-field-full">
+                <span class="form-label" data-i18n="res_cremains">Cremains Transportation</span>
+                <div class="res-radio-group">
+                  <label class="res-radio-label">
+                    <input type="radio" name="res-cremains-type" value="preship" checked>
+                    <span data-i18n="res_cremains_preship">Pre-ship</span>
+                  </label>
+                  <label class="res-radio-label">
+                    <input type="radio" name="res-cremains-type" value="carryon">
+                    <span data-i18n="res_cremains_carryon">Carry-on</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-field-full" id="res-handoff-container" style="display: none;">
+                <label class="form-label" for="res-handoff-details" data-i18n="res_cremains_handoff">Cremains Handoff (Date/Time/Location)</label>
+                <input class="form-input" type="text" id="res-handoff-details" placeholder="June 1 / 12:00pm / Airport">
+                <span class="res-warning-text" data-i18n="res_handoff_warning">Carry-on cremains must arrive early for handoff. Add $100 if handoff is less than 3 days before ceremony.</span>
+              </div>
+
+              <div class="form-field-full">
+                <label class="form-label" for="res-special-reqs" data-i18n="res_special">Special Requests / Needs</label>
+                <textarea class="form-textarea" id="res-special-reqs" placeholder="Special requirements, vessel preference, or any other notes..."></textarea>
+              </div>
+
+            </div>
+          </div>
+
         </div>
 
         <!-- Sidebar Summary -->
